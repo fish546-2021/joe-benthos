@@ -1,7 +1,9 @@
 # ignore
 
 # blast practice 2021-01-21
-blastx_practice/data/*.fasta
-blastx_practice/data/*.phr
-blastx_practice/data/*.psq
-blastx_practice/data/*.gz
+*.fasta
+*.phr
+*.psq
+*.gz
+*.fa
+*.fasta.gz

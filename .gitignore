@@ -1,7 +1,8 @@
 # ignore
 
-# blast practice 2021-01-21
 *.fasta
+*.fastq
+*.fastq.gz
 *.phr
 *.psq
 *.gz

@@ -1,4 +1,4 @@
-# ignore
+# ignore big data files
 
 *.fasta
 *.fastq
@@ -8,3 +8,4 @@
 *.gz
 *.fa
 *.fasta.gz
+./blast-db/

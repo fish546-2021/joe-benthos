@@ -9,3 +9,4 @@
 *.fa
 *.fasta.gz
 ./blast-db/
+.Rproj.user

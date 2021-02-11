@@ -1,4 +1,4 @@
-# ignore
+# ignore big data files
 
 *.fasta
 *.fastq
@@ -8,8 +8,5 @@
 *.gz
 *.fa
 *.fasta.gz
-<<<<<<< HEAD
 ./blast-db/
 .Rproj.user
-=======
->>>>>>> parent of 1abb53f... first blast attempt with HC data

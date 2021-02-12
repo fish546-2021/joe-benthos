@@ -11,7 +11,7 @@ The next step with the Hood Canal data will be to demultiplex it either with [th
 To get "end data" the demultiplexed fastq files will be denoised and assigned taxa using dada2. Since my data is not yet formated, I ran through the dada2 tutorial with their mouse gut data and created this [taxa table output](https://github.com/fish546-2021/joe-benthos/blob/main/analysis/mouse-gut-tutorial-taxa.csv). 
 
 ## TODO
-*To connect both ends of the pipeline I need to demultiplex my data and get it into the correct format to run through dada2. 
-*I would like to further familiarize myself with blast and blast params as an alternative for exploring the raw reads. 
-*I also need to to read up/watch more on read quality, and PCR artifacts so I can make informed decisions about qa/qc and discarding data. 
-*Once I get my taxa tables by sample site, technical replicates and biological replicates I need to find creative ways to visualize presence/absense and relative abundance in order to draw insights from the data. 
+* To connect both ends of the pipeline I need to demultiplex my data and get it into the correct format to run through dada2. 
+* I would like to further familiarize myself with blast and blast params as an alternative for exploring the raw reads. 
+* I also need to to read up/watch more on read quality, and PCR artifacts so I can make informed decisions about qa/qc and discarding data. 
+* Once I get my taxa tables by sample site, technical replicates and biological replicates I need to find creative ways to visualize presence/absense and relative abundance in order to draw insights from the data. 

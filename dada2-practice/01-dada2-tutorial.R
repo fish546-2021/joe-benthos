@@ -110,6 +110,8 @@ taxa.print <- taxa # Removing sequence rownames for display only
 rownames(taxa.print) <- NULL
 head(taxa.print)
 
+write.csv(taxa, "../analysis/mouse-gut-tutorial-taxa.csv")
+
 # Evaluate accuracy on mock community 
 #---------------------------------------------------------------------------
 # "One of the samples included here was a “mock community”, in which a mixture of 

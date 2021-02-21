@@ -8,6 +8,7 @@
 *.gz
 *.fa
 *.fasta.gz
+*.zip
 <<<<<<< HEAD
 ./blast-db/
 .Rproj.user

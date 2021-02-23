@@ -1,0 +1,6 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	Good-lib5_S5_L001_R2_001	/Users/dishajpatel/Documents/GitHub/joe-benthos/analysis/fastqc-out/Good-lib5_S5_L001_R2_001_fastqc.zip
+FastQC	all_sections	Good-lib2_S2_L001_R1_001	/Users/dishajpatel/Documents/GitHub/joe-benthos/analysis/fastqc-out/Good-lib2_S2_L001_R1_001_fastqc.zip
+FastQC	all_sections	Good-lib9_S7_L001_R1_001	/Users/dishajpatel/Documents/GitHub/joe-benthos/analysis/fastqc-out/Good-lib9_S7_L001_R1_001_fastqc.zip
+FastQC	all_sections	Good-lib6_S6_L001_R1_001	/Users/dishajpatel/Documents/GitHub/joe-benthos/analysis/fastqc-out/Good-lib6_S6_L001_R1_001_fastqc.zip
+FastQC	all_sections	Good-lib1_S1_L001_R1_001	/Users/dishajpatel/Documents/GitHub/joe-benthos/analysis/fastqc-out/Good-lib1_S1_L001_R1_001_fastqc.zip

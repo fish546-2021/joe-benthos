@@ -10,6 +10,10 @@
 *.fasta.gz
 *.zip
 *.sam
+*.bam
+*.sorted.bam
+*.bai
+*.bam.bai
 *.fasta.fai 
 
 ./blast-db/

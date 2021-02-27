@@ -9,8 +9,8 @@
 *.fa
 *.fasta.gz
 *.zip
-<<<<<<< HEAD
+*.sam
+*.fasta.fai 
+
 ./blast-db/
 .Rproj.user
-=======
->>>>>>> parent of 1abb53f... first blast attempt with HC data

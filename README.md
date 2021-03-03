@@ -4,8 +4,8 @@
 Initial attempt to reproduce and expand on analysis of Hood Canal and San Juan Islands eDNA data. Raw data and original bioinformatic pipeline available on [Ramon Gallego's github](https://github.com/ramongallego/Harmful.Algae.eDNA) The related Ocean Acidification project and pipeline is available [here](https://github.com/ramongallego/eDNA.and.Ocean.Acidification.Gallego.et.al.2020).
 
 ## Initial Methods and Results
-[Jupyter Presentation of the Initial Results](https://github.com/fish546-2021/joe-benthos/blob/main/documentation/presentation.ipynb). 
-[Markdown of Methods and Results](https://github.com/fish546-2021/joe-benthos/blob/main/documentation/methods-results.md). 
+[Jupyter Presentation of the Initial Results](https://github.com/fish546-2021/joe-benthos/blob/main/documentation/presentation.ipynb)  
+[Markdown of Methods and Results](https://github.com/fish546-2021/joe-benthos/blob/main/documentation/methods-results.md)   
 
 ## Workflow 
 The subset fastq file is run through FastQC [here](https://github.com/fish546-2021/joe-benthos/blob/main/code/03-blast-hcdata.ipynb). As a further sanity and quality check I converted the fastq -> fasta using seqtk, then I ran blast on the fasta file against the uniprot database. The output is available in [analysis](https://github.com/fish546-2021/joe-benthos/tree/main/analysis). Blast matches CO1 protiens as expected.

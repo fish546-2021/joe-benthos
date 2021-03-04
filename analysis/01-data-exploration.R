@@ -97,7 +97,11 @@ ostrea_env <- inner_join(ostrea, events)
 
 # lets try some scatter plots log(nReads) vs environmental variables
 plot(ostrea_env$Temperature, ostrea_env$nReads)
-plot(ostrea_env$pH_new, ostrea_env$nReads)
+
+jpeg("./figures/ostrea_pH.jpg", width = 500, height = 500)
+plot(ostrea_env$pH_new, ostrea_env$nReads, main="log(Olympia Oyster Reads) vs. pH", xlab="pH",ylab="nReads over all replicates")
+dev.off()
+
 plot(ostrea_env$mean.DIC, ostrea_env$nReads)
 plot(ostrea_env$Omega.aragonite, ostrea_env$nReads)
 
@@ -121,8 +125,20 @@ LK_littorina <- littorina_env %>%
   filter(str_detect(sample, "LK"))
 
 # low resolution time series, are these even useful? 
+jpeg("./figures/LL_littorina.jpg", width = 500, height = 500)
 barplot(LL_littorina$nReads, names.arg = LL_littorina$sample, las=2)
+dev.off()
 
+jpeg("./figures/TR_littorina.jpg", width = 500, height = 500)
 barplot(TR_littorina$nReads, names.arg = TR_littorina$sample, las=2)
+dev.off()
 
+jpeg("./figures/LK_littorina.jpg", width = 500, height = 500)
 barplot(LK_littorina$nReads, names.arg = LK_littorina$sample, las=2)
+dev.off()
+
+#saving useful CSVs
+#---------------------------------------------------------------------
+write_csv(by_site_species, "./asv-output/by.site.species.csv")
+write_csv(by_species_df, "./asv-output/by.species.csv")
+write_csv(littorina_env, "./asv-output/littorina.env.example.csv")

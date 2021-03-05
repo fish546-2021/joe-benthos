@@ -1,0 +1,25 @@
+---
+title: "07-dada2-HCdata"
+author: "Joe Duprey"
+date: "3/5/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Loading Packages
+load dada2
+
+```{r packages}
+library(dada2); packageVersion("dada2")
+```
+lets find the fastqs
+
+```{r fastq path}
+path <- "~/MiSeq_SOP" # CHANGE ME to the directory containing the fastq files after unzipping.
+list.files(path)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

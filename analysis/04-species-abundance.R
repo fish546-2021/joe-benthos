@@ -50,3 +50,6 @@ plot(species_div_env$Temperature, species_div_env$diversity)
 # --------------------------------------------------------------------------
 # i need a list of species of interest, then weed out the other, then view the data 
 # species diversity -> read species richness (oops)
+
+write_csv(species_div, "./asv-output/joe.species.div.csv")
+write_csv(species_div_env, "./asv-output/joe.species.div.env.csv")

@@ -92,6 +92,8 @@ events$event <- str_remove(events$event, "[-]")
 events <- events %>%
   separate(col=event, into=c("sample", "foo"), sep = 9)
 
+
+
 # join environmental/oceanographic variables with nReads of ostrea 
 ostrea_env <- inner_join(ostrea, events)
 
@@ -142,3 +144,4 @@ dev.off()
 write_csv(by_site_species, "./asv-output/by.site.species.csv")
 write_csv(by_species_df, "./asv-output/by.species.csv")
 write_csv(littorina_env, "./asv-output/littorina.env.example.csv")
+write_csv(events, "./asv-output/events.joe.format.csv")

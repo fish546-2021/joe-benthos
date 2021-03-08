@@ -4,8 +4,8 @@ library('stringr')
 library('tidyverse')
 
 # load my species tables
-by_site_species <- read.csv(here('asv-output','by.site.species.csv'))
-events <- read.csv(here('asv-output', 'events.joe.format.csv'))
+by_site_species <- read.csv(here('all.the.useful.tables','by.site.species.csv'))
+events <- read.csv(here('all.the.useful.tables', 'events.joe.format.csv'))
 
 by_site_species$diversity <- 1
 
@@ -18,8 +18,12 @@ species_div <- by_site_species %>%
 species_div_env <- inner_join(species_div, events)
 
 # species diversity vs pH new pH?
-plot(species_div_env$pH_new, species_div_env$diversity, xlim=c(7.5,8.7))
-
+jpeg("./figures/pH.richness.jpg", width = 500, height = 500)
+plot(species_div_env$pH_new, species_div_env$diversity, xlim=c(7.5,8.7),
+     main = 'Species Richness vs pH',
+     xlab = 'pH',
+     ylab = 'species richness')
+dev.off()
 
 # function for plotting species diversity over time - barplot
 # string as argument
@@ -29,7 +33,9 @@ div_by_site <- function(location){
   samp_div <- species_div_env %>%
     filter(str_detect(sample, location))
   
-  barplot(samp_div$diversity, names.arg = samp_div$sample, las=2)
+  barplot(samp_div$diversity, names.arg = samp_div$sample, las=2,
+          main = location,
+          ylab = 'species richness')
 }
 
 # lets use that function!
@@ -43,13 +49,24 @@ div_by_site("TR")
 div_by_site("TW")
 
 # more scatter plots, salinity, temperature  
-plot(species_div_env$Salinity, species_div_env$diversity)
-plot(species_div_env$Temperature, species_div_env$diversity)
+jpeg("./figures/salinity.richness.jpg", width = 500, height = 500)
+plot(species_div_env$Salinity, species_div_env$diversity,
+     main = 'Species Richness vs Salinity',
+     xlab = 'salinity',
+     ylab = 'species richness')
+dev.off()
+
+jpeg("./figures/salinity.temp.jpg", width = 500, height = 500)
+plot(species_div_env$Temperature, species_div_env$diversity,
+     main = 'Species Richness vs Temperature',
+     xlab = 'temperature C',
+     ylab = 'species richness')
+dev.off()
 
 # OKAY now for benthic function groups
 # --------------------------------------------------------------------------
 # i need a list of species of interest, then weed out the other, then view the data 
 # species diversity -> read species richness (oops)
 
-write_csv(species_div, "./asv-output/joe.species.div.csv")
-write_csv(species_div_env, "./asv-output/joe.species.div.env.csv")
+write_csv(species_div, "./all.the.useful.tables/joe.species.div.csv")
+write_csv(species_div_env, "./all.the.useful.tables/joe.species.div.env.csv")

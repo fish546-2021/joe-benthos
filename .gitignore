@@ -15,6 +15,7 @@
 *.bai
 *.bam.bai
 *.fasta.fai 
+*.rds
 
 ./blast-db/
 .Rproj.user

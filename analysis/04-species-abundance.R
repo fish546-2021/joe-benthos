@@ -35,18 +35,42 @@ div_by_site <- function(location){
   
   barplot(samp_div$diversity, names.arg = samp_div$sample, las=2,
           main = location,
-          ylab = 'species richness')
+          ylab = 'species richness',
+          ylim = c(0,100))
 }
 
 # lets use that function!
+jpeg("./figures/FH.series.jpg", width = 500, height = 500)
 div_by_site("FH")
+dev.off()
+
+jpeg("./figures/LL.series.jpg", width = 500, height = 500)
 div_by_site("LL")
+dev.off()
+
+jpeg("./figures/LK.series.jpg", width = 500, height = 500)
 div_by_site("LK")
+dev.off()
+
+jpeg("./figures/SA.series.jpg", width = 500, height = 500)
 div_by_site("SA")
+dev.off()
+
+jpeg("./figures/CP.series.jpg", width = 500, height = 500)
 div_by_site("CP")
+dev.off()
+
+jpeg("./figures/PO.series.jpg", width = 500, height = 500)
 div_by_site("PO")
+dev.off()
+
+jpeg("./figures/TR.series.jpg", width = 500, height = 500)
 div_by_site("TR")
+dev.off()
+
+jpeg("./figures/TW.series.jpg", width = 500, height = 500)
 div_by_site("TW")
+dev.off()
 
 # more scatter plots, salinity, temperature  
 jpeg("./figures/salinity.richness.jpg", width = 500, height = 500)
@@ -70,3 +94,4 @@ dev.off()
 
 write_csv(species_div, "./all.the.useful.tables/joe.species.div.csv")
 write_csv(species_div_env, "./all.the.useful.tables/joe.species.div.env.csv")
+

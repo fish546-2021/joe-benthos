@@ -39,3 +39,10 @@ longDF <- classify(x, classifier, threshold = 0.8)
 longDF <- cbind(longDF, t(seq_tab))
 
 write_csv(longDF, './all.the.useful.tables/01subset.taxa.table.csv')
+
+# for a more succinct output we can aggregate the table to only include one row 
+# for each unique taxon as follows:
+
+#taxa <- aggregate(longDF[3:12], longDF["taxID"], head, 1)
+#counts <- aggregate(longDF[13:ncol(longDF)], longDF["taxID"], sum)
+#shortDF <- merge(taxa, counts, by = "taxID")

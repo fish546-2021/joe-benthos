@@ -178,6 +178,7 @@ pre code {
 <li>FastQC<br />
 </li>
 <li>MultiQC</li>
+<li>Insect 1.2</li>
 </ul>
 <p><strong>Demultiplexer_for_DADA2</strong></p>
 <ul>
@@ -259,7 +260,7 @@ multiqc .</code></pre>
 </div>
 <div id="a-running-demultiplexer_for_dada2one-step" class="section level2">
 <h2><strong>A:</strong> Running <code>demultiplexer_for_DADA2</code>One Step</h2>
-<p>The simpler workflow is to run Moncho’s custom script <code>demultiplex_both_fastqs.sh</code> to both demultiplex, and assign taxa to the filtered ASVs (amplicon sequence variants).</p>
+<p>The simpler workflow is to run Moncho’s custom script <code>demultiplex_both_fastqs.sh</code> to multiplex, filter, and pair reads. The output of this script is an ASV table - with either a sequence or a hash - and the total reads for that sequence.</p>
 <p>I found the best way to do this was to preserve the directory structure of <code>/demultiplexer_for_DADA2/</code> as cloned. In order to run the script we need to empty <code>/demultiplexer_for_DADA2/data/</code> and move our data in.</p>
 <pre class="bash"><code>find ../../demultiplexer_for_DADA2/data -name &quot;*fastq&quot; | xargs \
 rm 
@@ -295,16 +296,46 @@ mv -t ../../demultiplexer_for_DADA2/data/</code></pre>
 <p><strong>Now that the metadata is formatted correctly and the paired fastqs are in <code>demultiplexer_for_DADA2/data</code>, we can run the Moncho’s script.</strong></p>
 <p>If <code>cutadapt</code> was installed via <code>conda -install</code> make sure the environment is active.</p>
 <pre class="bash"><code>conda activate cutadaptenv</code></pre>
-<pre><code>## Error in running command bash</code></pre>
-<p>**Run demulti</p>
+<p><strong>Run <code>demultiplex_both_fastqs.sh</code></strong></p>
 <pre class="bash"><code>bash &lt;path/to/dir&gt;/demultiplex_both_fastqs.sh &lt;path/to/dir&gt;/banzai_params_for_dada2.sh</code></pre>
 </div>
-<div id="b-multiple-steps" class="section level2">
-<h2><strong>B</strong> Multiple Steps</h2>
-<p><em>coming soon…</em></p>
-</div>
-<div id="data-reshaping-and-exploration" class="section level2">
-<h2>Data Reshaping and Exploration</h2>
+<div id="assigning-taxa" class="section level2">
+<h2>Assigning Taxa</h2>
+<p>The output of <code>demultiplex_both_fastqs.sh</code> will be placed in a folder in your home directory <code>~/fastqs_demultiplexed_for_dada2/demultiplexed_date_time</code>. I coped that subfolder to <code>./analysis/01-demultiplexed</code> this can be done via GUI or as follows:</p>
+<pre class="bash"><code>mv ~/fastqs_demultiplexed_for_dada2/demultiplexed_date_time ../analysis/01-demultiplexed
+</code></pre>
+<p><strong>Note</strong> I ran analysis code from the <code>./analysis</code> directory and the paths are formatted for this.</p>
+<p>We will load both the <code>hash_key.csv</code> and <code>ASV_table.csv</code> into R. We will join them and convert to the wide format <code>seq_tab.csv</code> format that Insect requires for taxa assignment. Workflow adapted from the (Insect Tutorial)[<a href="https://cran.r-project.org/web/packages/insect/vignettes/insect-vignette.html" class="uri">https://cran.r-project.org/web/packages/insect/vignettes/insect-vignette.html</a>].</p>
+<pre class="r"><code>data(samoa)
+ASV_tab &lt;- read.csv(here(&#39;./01-demultiplexed&#39;,&#39;ASV_table.csv&#39;))
+hash_key &lt;- read.csv(here(&#39;./01-demultiplexed&#39;,&#39;hash_key.csv&#39;))
+
+seq_tab &lt;- inner_join(ASV_tab, hash_key)
+seq_tab &lt;- select(seq_tab, -c(Hash))
+
+seq_tab = seq_tab %&gt;% 
+  spread(Sequence, nReads) %&gt;%
+  replace(is.na(.), 0)</code></pre>
+<p>Download the classifier.</p>
+<pre class="r"><code>download.file(&quot;https://www.dropbox.com/s/dvnrhnfmo727774/classifier.rds?dl=1&quot;, 
+              destfile = &quot;classifier.rds&quot;, mode = &quot;wb&quot;)</code></pre>
+<p>Format the ASVs for readability and store the classifier as a variable in the workspace.</p>
+<pre class="r"><code>## get sequences from table column names
+x &lt;- char2dna(colnames(seq_tab))
+## name the sequences sequentially
+names(x) &lt;- paste0(&quot;ASV&quot;, seq_along(x))
+## optionally remove column names that can flood the console when printed
+# colnames(seq_tab) &lt;- NULL 
+
+classifier &lt;- readRDS(&quot;classifier.rds&quot;)
+classifier
+names(attributes(classifier))</code></pre>
+<p>Finally, assign reads to taxa and write the output to <code>./analysis/all.the.useful.tables/</code>!</p>
+<pre class="r"><code>longDF &lt;- classify(x, classifier, threshold = 0.8)
+
+longDF &lt;- cbind(longDF, t(seq_tab))
+
+write_csv(longDF, &#39;./all.the.useful.tables/01subset.taxa.table.csv&#39;)</code></pre>
 </div>
 
 

@@ -8,7 +8,8 @@ output: html_document
 **General**  
 
  - FastQC  
- - MultiQC  
+ - MultiQC 
+ - Insect 1.2
  
 **Demultiplexer_for_DADA2**  
 
@@ -160,8 +161,61 @@ bash <path/to/dir>/demultiplex_both_fastqs.sh <path/to/dir>/banzai_params_for_da
 ```
 
 ## Assigning Taxa 
-We will assign taxa using dada2. 
 
-load sequence table into R
-load reference database 
+The output of `demultiplex_both_fastqs.sh` will be placed in a folder in your home directory `~/fastqs_demultiplexed_for_dada2/demultiplexed_date_time`. I coped that subfolder to `./analysis/01-demultiplexed` this can be done via GUI or as follows:
 
+```{bash eval=FALSE}
+mv ~/fastqs_demultiplexed_for_dada2/demultiplexed_date_time ../analysis/01-demultiplexed
+
+```
+
+**Note:** I ran all the following analysis code from the `./analysis` directory and the paths are formatted for this. 
+
+We will load both the `hash_key.csv` and `ASV_table.csv` into R. We will join them and convert to the wide format `seq_tab.csv` format that Insect requires for taxa assignment.
+Workflow adapted from the (Insect Tutorial)[https://cran.r-project.org/web/packages/insect/vignettes/insect-vignette.html].
+
+
+```{r eval=FALSE}
+data(samoa)
+ASV_tab <- read.csv(here('./01-demultiplexed','ASV_table.csv'))
+hash_key <- read.csv(here('./01-demultiplexed','hash_key.csv'))
+
+seq_tab <- inner_join(ASV_tab, hash_key)
+seq_tab <- select(seq_tab, -c(Hash))
+
+seq_tab = seq_tab %>% 
+  spread(Sequence, nReads) %>%
+  replace(is.na(.), 0)
+
+```
+
+Download the classifier.
+
+```{r eval=FALSE}
+download.file("https://www.dropbox.com/s/dvnrhnfmo727774/classifier.rds?dl=1", 
+              destfile = "classifier.rds", mode = "wb")
+```
+
+Format the ASVs for readability and store the classifier as a variable in the workspace. 
+```{r eval=FALSE}
+## get sequences from table column names
+x <- char2dna(colnames(seq_tab))
+## name the sequences sequentially
+names(x) <- paste0("ASV", seq_along(x))
+## optionally remove column names that can flood the console when printed
+# colnames(seq_tab) <- NULL 
+
+classifier <- readRDS("classifier.rds")
+classifier
+names(attributes(classifier))
+```
+
+Finally, assign reads to taxa and write the output to `./analysis/all.the.useful.tables/`!
+
+```{r eval=FALSE}
+longDF <- classify(x, classifier, threshold = 0.8)
+
+longDF <- cbind(longDF, t(seq_tab))
+
+write_csv(longDF, './all.the.useful.tables/01subset.taxa.table.csv')
+```

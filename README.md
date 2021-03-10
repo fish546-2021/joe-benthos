@@ -5,7 +5,7 @@ Initial attempt to reproduce and expand on analysis of Hood Canal and San Juan I
 
 ## Initial Methods and Results
 [Initial Results](https://docs.google.com/presentation/d/1q-Bd3QJwW9msHNLYgbhqpKB1MxS_UekDfvtgkPvtSzE/edit#slide=id.p)   
-[Markdown of Methods and Results](https://github.com/fish546-2021/joe-benthos/blob/main/documentation/methods-results.md)   
+[Methods and Results](https://github.com/fish546-2021/joe-benthos/blob/main/documentation/methods-results.md)   
 
 ## Workflow 
 The subset fastq file is run through FastQC [here](https://github.com/fish546-2021/joe-benthos/blob/main/code/03-blast-hcdata.ipynb). As a further sanity and quality check I converted the fastq -> fasta using seqtk, then I ran blast on the fasta file against the uniprot database. The output is available in [analysis](https://github.com/fish546-2021/joe-benthos/tree/main/analysis). Blast matches CO1 protiens as expected.

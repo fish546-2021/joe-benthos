@@ -1,52 +1,51 @@
-representative,taxID,taxon,rank,score,kingdom,phylum,class,order,family,genus,species,1,2,3,4,5,6,7
-ASV1,1,root,no rank,NA,,,,,,,,PO07C.2,PO08A.1,SA08C.2,TR07B.3,TR07C.2,TW07C.2,TW08A.2
-ASV2,2759,Eukaryota,superkingdom,0.9975,,,,,,,, 49,158, 29, 14, 20, 16, 80
-ASV3,131567,cellular organisms,no rank,1,,,,,,,, 0,58, 0, 0, 0, 0,27
-ASV4,2836,Bacillariophyta,phylum,1,,Bacillariophyta,,,,,, 87,  0,  0, 82,105,  0,  6
-ASV5,2759,Eukaryota,superkingdom,0.9943,,,,,,,,25, 0, 0, 3,26, 0, 0
-ASV6,1,root,no rank,1,,,,,,,,0,0,2,0,4,0,0
-ASV7,131567,cellular organisms,no rank,1,,,,,,,, 0,15, 0, 0, 0, 0, 4
-ASV8,2759,Eukaryota,superkingdom,0.9917,,,,,,,, 0,63, 0, 0, 0, 0,10
-ASV9,2759,Eukaryota,superkingdom,0.9917,,,,,,,, 0, 0,63, 0, 0, 0, 0
-ASV10,2759,Eukaryota,superkingdom,0.9917,,,,,,,, 0,17, 0, 0, 0, 8, 8
-ASV11,2759,Eukaryota,superkingdom,0.887,,,,,,,, 0,84,23, 0, 0, 0,57
-ASV12,2759,Eukaryota,superkingdom,0.9864,,,,,,,, 0, 0,57, 0, 0, 0, 0
-ASV13,2759,Eukaryota,superkingdom,0.8765,,,,,,,,6,0,0,0,0,0,0
-ASV14,131567,cellular organisms,no rank,1,,,,,,,, 0,27, 0, 0, 0, 0, 0
-ASV15,116571,Podoplea,superorder,0.8835,Metazoa,Arthropoda,Hexanauplia,,,,,0,0,0,0,5,0,0
-ASV16,1,root,no rank,1,,,,,,,,5,0,0,0,0,0,0
-ASV17,2836,Bacillariophyta,phylum,0.9996,,Bacillariophyta,,,,,,0,0,2,0,0,0,0
-ASV18,2836,Bacillariophyta,phylum,0.9999,,Bacillariophyta,,,,,,0,0,3,0,0,0,0
-ASV19,131567,cellular organisms,no rank,1,,,,,,,,6,0,0,0,0,0,0
-ASV20,33656,Phaeocystis,genus,1,,,Haptophyceae,Phaeocystales,Phaeocystaceae,Phaeocystis,, 0,14, 0, 0, 0, 5, 0
-ASV21,1,root,no rank,1,,,,,,,, 0, 9, 7, 0, 0, 0,11
-ASV22,37858,Ostrea,genus,1,Metazoa,Mollusca,Bivalvia,Ostreoida,Ostreidae,Ostrea,,8,0,0,0,0,0,0
-ASV23,1,root,no rank,NA,,,,,,,,8,0,0,0,0,0,0
-ASV24,37858,Ostrea,genus,1,Metazoa,Mollusca,Bivalvia,Ostreoida,Ostreidae,Ostrea,,0,0,0,0,4,0,0
-ASV25,2759,Eukaryota,superkingdom,0.8535,,,,,,,,0,0,0,0,0,0,2
-ASV26,2759,Eukaryota,superkingdom,0.9941,,,,,,,,52,67, 0, 0,11, 5,36
-ASV27,2830,Haptophyceae,class,0.8207,,,Haptophyceae,,,,,144, 27,  0,112,137,114,  0
-ASV28,2759,Eukaryota,superkingdom,0.9287,,,,,,,, 0,37, 0, 0, 0, 0, 0
-ASV29,163471,Paracalanus,genus,1,Metazoa,Arthropoda,Hexanauplia,Calanoida,Paracalanidae,Paracalanus,,0,7,0,0,0,0,0
-ASV30,1,root,no rank,1,,,,,,,, 0, 0,19, 0, 0, 0, 0
-ASV31,2759,Eukaryota,superkingdom,1,,,,,,,, 0,11, 0, 0, 0, 0, 0
-ASV32,2836,Bacillariophyta,phylum,1,,Bacillariophyta,,,,,,29, 0, 0,21,13,78, 0
-ASV33,2759,Eukaryota,superkingdom,0.9972,,,,,,,, 0, 0, 0, 6,10, 0, 0
-ASV34,2759,Eukaryota,superkingdom,0.9987,,,,,,,, 0, 0,74, 0, 5, 0, 0
-ASV35,2759,Eukaryota,superkingdom,0.9839,,,,,,,, 0,43, 0, 0, 0, 0, 0
-ASV36,33634,Stramenopiles,no rank,0.922,,,,,,,, 0,12, 0, 0, 0, 0, 4
-ASV37,33634,Stramenopiles,no rank,0.922,,,,,,,,2,0,0,0,0,0,0
-ASV38,2759,Eukaryota,superkingdom,0.9955,,,,,,,,125, 41,  0,177,171,195,  0
-ASV39,2759,Eukaryota,superkingdom,0.9999,,,,,,,,0,6,0,0,0,0,0
-ASV40,2759,Eukaryota,superkingdom,0.9999,,,,,,,,0,9,0,0,0,0,0
-ASV41,116167,Sessilia,order,1,Metazoa,Arthropoda,Hexanauplia,Sessilia,,,,0,0,4,0,0,0,0
-ASV42,10191,Monogononta,class,1,Metazoa,Rotifera,Monogononta,,,,, 0,67,36, 0, 0, 0, 0
-ASV43,2759,Eukaryota,superkingdom,1,,,,,,,,0,5,0,0,0,0,0
-ASV44,37516,Hydroidolina,subclass,0.9882,Metazoa,Cnidaria,Hydrozoa,,,,, 0, 0,13, 0, 0, 0, 0
-ASV45,2759,Eukaryota,superkingdom,0.9463,,,,,,,,0,0,0,0,0,0,5
-ASV46,131567,cellular organisms,no rank,1,,,,,,,, 0, 0, 0, 0, 0, 0,30
-ASV47,46599,Spionidae,family,0.9918,Metazoa,Annelida,Polychaeta,Spionida,Spionidae,,,0,0,0,3,0,0,0
-ASV48,1,root,no rank,NA,,,,,,,,0,0,8,0,0,0,0
-ASV49,116571,Podoplea,superorder,0.9043,Metazoa,Arthropoda,Hexanauplia,,,,,0,0,0,0,0,9,0
-ASV50,2759,Eukaryota,superkingdom,1,,,,,,,,0,0,0,0,0,0,8
-ASV51,2759,Eukaryota,superkingdom,0.9778,,,,,,,,0,5,0,0,2,0,0
+representative,taxID,taxon,rank,score,kingdom,phylum,class,order,family,genus,species,PO07C.2,PO08A.1,SA08C.2,TR07B.3,TR07C.2,TW07C.2,TW08A.2
+ASV1,2759,Eukaryota,superkingdom,0.9975,,,,,,,,49,158,29,14,20,16,80
+ASV2,131567,cellular organisms,no rank,1,,,,,,,,0,58,0,0,0,0,27
+ASV3,2836,Bacillariophyta,phylum,1,,Bacillariophyta,,,,,,87,0,0,82,105,0,6
+ASV4,2759,Eukaryota,superkingdom,0.9943,,,,,,,,25,0,0,3,26,0,0
+ASV5,1,root,no rank,1,,,,,,,,0,0,2,0,4,0,0
+ASV6,131567,cellular organisms,no rank,1,,,,,,,,0,15,0,0,0,0,4
+ASV7,2759,Eukaryota,superkingdom,0.9917,,,,,,,,0,63,0,0,0,0,10
+ASV8,2759,Eukaryota,superkingdom,0.9917,,,,,,,,0,0,63,0,0,0,0
+ASV9,2759,Eukaryota,superkingdom,0.9917,,,,,,,,0,17,0,0,0,8,8
+ASV10,2759,Eukaryota,superkingdom,0.887,,,,,,,,0,84,23,0,0,0,57
+ASV11,2759,Eukaryota,superkingdom,0.9864,,,,,,,,0,0,57,0,0,0,0
+ASV12,2759,Eukaryota,superkingdom,0.8765,,,,,,,,6,0,0,0,0,0,0
+ASV13,131567,cellular organisms,no rank,1,,,,,,,,0,27,0,0,0,0,0
+ASV14,116571,Podoplea,superorder,0.8835,Metazoa,Arthropoda,Hexanauplia,,,,,0,0,0,0,5,0,0
+ASV15,1,root,no rank,1,,,,,,,,5,0,0,0,0,0,0
+ASV16,2836,Bacillariophyta,phylum,0.9996,,Bacillariophyta,,,,,,0,0,2,0,0,0,0
+ASV17,2836,Bacillariophyta,phylum,0.9999,,Bacillariophyta,,,,,,0,0,3,0,0,0,0
+ASV18,131567,cellular organisms,no rank,1,,,,,,,,6,0,0,0,0,0,0
+ASV19,33656,Phaeocystis,genus,1,,,Haptophyceae,Phaeocystales,Phaeocystaceae,Phaeocystis,,0,14,0,0,0,5,0
+ASV20,1,root,no rank,1,,,,,,,,0,9,7,0,0,0,11
+ASV21,37858,Ostrea,genus,1,Metazoa,Mollusca,Bivalvia,Ostreoida,Ostreidae,Ostrea,,8,0,0,0,0,0,0
+ASV22,1,root,no rank,NA,,,,,,,,8,0,0,0,0,0,0
+ASV23,37858,Ostrea,genus,1,Metazoa,Mollusca,Bivalvia,Ostreoida,Ostreidae,Ostrea,,0,0,0,0,4,0,0
+ASV24,2759,Eukaryota,superkingdom,0.8535,,,,,,,,0,0,0,0,0,0,2
+ASV25,2759,Eukaryota,superkingdom,0.9941,,,,,,,,52,67,0,0,11,5,36
+ASV26,2830,Haptophyceae,class,0.8207,,,Haptophyceae,,,,,144,27,0,112,137,114,0
+ASV27,2759,Eukaryota,superkingdom,0.9287,,,,,,,,0,37,0,0,0,0,0
+ASV28,163471,Paracalanus,genus,1,Metazoa,Arthropoda,Hexanauplia,Calanoida,Paracalanidae,Paracalanus,,0,7,0,0,0,0,0
+ASV29,1,root,no rank,1,,,,,,,,0,0,19,0,0,0,0
+ASV30,2759,Eukaryota,superkingdom,1,,,,,,,,0,11,0,0,0,0,0
+ASV31,2836,Bacillariophyta,phylum,1,,Bacillariophyta,,,,,,29,0,0,21,13,78,0
+ASV32,2759,Eukaryota,superkingdom,0.9972,,,,,,,,0,0,0,6,10,0,0
+ASV33,2759,Eukaryota,superkingdom,0.9987,,,,,,,,0,0,74,0,5,0,0
+ASV34,2759,Eukaryota,superkingdom,0.9839,,,,,,,,0,43,0,0,0,0,0
+ASV35,33634,Stramenopiles,no rank,0.922,,,,,,,,0,12,0,0,0,0,4
+ASV36,33634,Stramenopiles,no rank,0.922,,,,,,,,2,0,0,0,0,0,0
+ASV37,2759,Eukaryota,superkingdom,0.9955,,,,,,,,125,41,0,177,171,195,0
+ASV38,2759,Eukaryota,superkingdom,0.9999,,,,,,,,0,6,0,0,0,0,0
+ASV39,2759,Eukaryota,superkingdom,0.9999,,,,,,,,0,9,0,0,0,0,0
+ASV40,116167,Sessilia,order,1,Metazoa,Arthropoda,Hexanauplia,Sessilia,,,,0,0,4,0,0,0,0
+ASV41,10191,Monogononta,class,1,Metazoa,Rotifera,Monogononta,,,,,0,67,36,0,0,0,0
+ASV42,2759,Eukaryota,superkingdom,1,,,,,,,,0,5,0,0,0,0,0
+ASV43,37516,Hydroidolina,subclass,0.9882,Metazoa,Cnidaria,Hydrozoa,,,,,0,0,13,0,0,0,0
+ASV44,2759,Eukaryota,superkingdom,0.9463,,,,,,,,0,0,0,0,0,0,5
+ASV45,131567,cellular organisms,no rank,1,,,,,,,,0,0,0,0,0,0,30
+ASV46,46599,Spionidae,family,0.9918,Metazoa,Annelida,Polychaeta,Spionida,Spionidae,,,0,0,0,3,0,0,0
+ASV47,1,root,no rank,NA,,,,,,,,0,0,8,0,0,0,0
+ASV48,116571,Podoplea,superorder,0.9043,Metazoa,Arthropoda,Hexanauplia,,,,,0,0,0,0,0,9,0
+ASV49,2759,Eukaryota,superkingdom,1,,,,,,,,0,0,0,0,0,0,8
+ASV50,2759,Eukaryota,superkingdom,0.9778,,,,,,,,0,5,0,0,2,0,0

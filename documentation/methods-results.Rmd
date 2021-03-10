@@ -184,7 +184,7 @@ hash_key <- read.csv(here('./01-demultiplexed','hash_key.csv'))
 seq_tab <- inner_join(ASV_tab, hash_key)
 seq_tab <- select(seq_tab, -c(Hash))
 
-seq_tab = seq_tab %>% 
+seq_tab <- seq_tab %>% 
   spread(Sequence, nReads) %>%
   replace(is.na(.), 0)
 

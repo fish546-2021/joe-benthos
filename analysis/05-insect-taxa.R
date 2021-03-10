@@ -12,6 +12,9 @@ library(reshape2)
 
 ## read in the example seqtab.nochim ASV table
 data(samoa)
+# see what example data looks like 
+samoa_df <- as.data.frame(samoa)
+
 ASV_tab <- read.csv(here('./01-demultiplexed','ASV_table.csv'))
 hash_key <- read.csv(here('./01-demultiplexed','hash_key.csv'))
 

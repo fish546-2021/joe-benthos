@@ -2,7 +2,7 @@
 title: "Methods and Results"
 author: "Joe Duprey"
 date: "3/8/2021"
-output: html_document
+output: github_document
 ---
 ## Dependencies 
 

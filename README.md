@@ -17,10 +17,10 @@ Initial attempt to reproduce and expand on analysis of Hood Canal and San Juan I
 To reproduce this workflow see [Methods and Results](https://github.com/fish546-2021/joe-benthos/blob/main/documentation/methods-results.md) 
 
 ## Directory Structure 
-`/analysis/` Code for taxa assignment data shaping, data exploration and visualization.  
-  `/all.the.useful.tables/` Output tables from taxa assignment and data shaping. 
-`/code/` Code for retrieving data, and example code for other bioinformatics tools. 
-`/data/` Raw data. 
-`/documentation/` Initial results and methods. 
-`/practice/` Practice code and assignments from Fish546. 
-`/refs/` Useful and interesting references for this project and future projects. 
+- `/analysis/` Code for taxa assignment data shaping, data exploration and visualization.   
+- `/all.the.useful.tables/` Output tables from taxa assignment and data shaping. 
+- `/code/` Code for retrieving data, and example code for other bioinformatics tools. 
+- `/data/` Raw data. 
+- `/documentation/` Initial results and methods. 
+- `/practice/` Practice code and assignments from Fish546. 
+- `/refs/` Useful and interesting references for this project and future projects. 

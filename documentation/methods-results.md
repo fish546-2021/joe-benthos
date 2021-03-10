@@ -37,7 +37,7 @@ Joe Duprey
 To retrieve Moncho’s custom demultiplexing script:
 `git clone https://github.com/ramongallego/demultiplexer_for_DADA2.git <directory>`
 
-## \#\# Retrieve Sequence Data
+## Retrieve Sequence Data
 
 First I retrieve the subset sequence data from where I uploaded it to
 Gannet. Replace `paths` and `server name` where appropriate.

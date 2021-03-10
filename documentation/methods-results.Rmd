@@ -43,11 +43,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Retrieve Sequence Data
----
+
 First I retrieve the subset sequence data from where I uploaded it to Gannet. Replace `paths` and `server name` where appropriate. 
 
 ```{bash eval=FALSE}
-scp casowari@Computer.fish.washington.edu:/<path/to/>zipped.fastqs.zip \
+scp casowari@Gannet.fish.washington.edu:/<path/to/>zipped.fastqs.zip \
 ../data/directory/zipped.fastqs.zip
 ```
 
@@ -220,3 +220,5 @@ longDF <- cbind(longDF, t(seq_tab))
 
 write_csv(longDF, './all.the.useful.tables/01subset.taxa.table.csv')
 ```
+
+## Results 

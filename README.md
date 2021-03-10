@@ -18,7 +18,7 @@ To reproduce this workflow see [Methods and Results](https://github.com/fish546-
 
 ## Directory Structure 
 - `/analysis/` Code for taxa assignment data shaping, data exploration and visualization.   
-- `/all.the.useful.tables/` Output tables from taxa assignment and data shaping. 
+ - `/all.the.useful.tables/` Output tables from taxa assignment and data shaping. 
 - `/code/` Code for retrieving data, and example code for other bioinformatics tools. 
 - `/data/` Raw data. 
 - `/documentation/` Initial results and methods. 

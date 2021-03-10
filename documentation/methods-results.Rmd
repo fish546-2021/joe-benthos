@@ -4,7 +4,8 @@ author: "Joe Duprey"
 date: "3/8/2021"
 output: html_document
 ---
-## Dependencies
+## Dependencies 
+
 **General**  
 
  - FastQC  
@@ -42,9 +43,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Retrieve Sequence Data
+---
 First I retrieve the subset sequence data from where I uploaded it to Gannet. Replace `paths` and `server name` where appropriate. 
 
-```{bash error=TRUE}
+```{bash eval=FALSE}
 scp casowari@Computer.fish.washington.edu:/<path/to/>zipped.fastqs.zip \
 ../data/directory/zipped.fastqs.zip
 ```
@@ -53,21 +55,21 @@ Alternatively you may retrieve the full fastqs [here](https://drive.google.com/d
 
 This pipeline runs with the fewest headaches if scripts are place in the `./code` folder.
 
-```{bash error=TRUE}
+```{bash eval=FALSE}
 #should be in the code directory of your project
 pwd
 ```
 
 Make sure your data is in your `./data` folder
 
-```{bash error=TRUE}
+```{bash eval=FALSE}
 #what's in the data folder?
 ls ../data/directory
 ```
 
 Find all zips from cloned folder and unzip them to `./data`, then unzip the `fastq.gz` files
 
-```{bash error=TRUE}
+```{bash eval=FALSE}
 #find all zips from cloned folder and unzip them to ../data
 find ../data/directory -name "*.zip" | xargs echo | xargs unzip -d ../data \
 find ../data/ -name "*.fastq.gz" | xargs gunzip
@@ -98,12 +100,11 @@ pwd
 multiqc .
 ```
 
-## Demultiplexing and Taxa Assignment - Either **A** or **B**
+## Demultiplexing 
 
-## **A:** Running `demultiplexer_for_DADA2`One Step 
-The simpler workflow is to run Moncho's custom script `demultiplex_both_fastqs.sh` to multiplex, filter, and pair reads. The output of this script is an ASV table - with either a sequence or a hash - and the total reads for that sequence. 
+The simpler workflow is to run Moncho's custom script `demultiplex_both_fastqs.sh` to demultiplex, filter, denoise, and pair reads. The output of this script is an ASV table and a hash key, along with various logs and metadata from the dada2 tools used by the script.
 
-I found the best way to do this was to preserve the directory structure of `/demultiplexer_for_DADA2/` as cloned. In order to run the script we need to empty `/demultiplexer_for_DADA2/data/` and move our data in. 
+I found the best way to run the script was to preserve the directory structure of `/demultiplexer_for_DADA2/` as cloned. In order to run the script we need to empty `/demultiplexer_for_DADA2/data/` and move our data in. 
 
 ```{bash eval=FALSE}
 find ../../demultiplexer_for_DADA2/data -name "*fastq" | xargs \

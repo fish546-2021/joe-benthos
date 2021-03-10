@@ -221,7 +221,7 @@ pre code {
 <p>To retrieve Moncho’s custom demultiplexing script: <code>git clone https://github.com/ramongallego/demultiplexer_for_DADA2.git &lt;directory&gt;</code></p>
 </div>
 <div id="retrieve-sequence-data" class="section level2">
-<h2>Retrieve Sequence Data</h2>
+<h2>## Retrieve Sequence Data</h2>
 <p>First I retrieve the subset sequence data from where I uploaded it to Gannet. Replace <code>paths</code> and <code>server name</code> where appropriate.</p>
 <pre class="bash"><code>scp casowari@Computer.fish.washington.edu:/&lt;path/to/&gt;zipped.fastqs.zip \
 ../data/directory/zipped.fastqs.zip</code></pre>
@@ -304,7 +304,7 @@ mv -t ../../demultiplexer_for_DADA2/data/</code></pre>
 <p>The output of <code>demultiplex_both_fastqs.sh</code> will be placed in a folder in your home directory <code>~/fastqs_demultiplexed_for_dada2/demultiplexed_date_time</code>. I coped that subfolder to <code>./analysis/01-demultiplexed</code> this can be done via GUI or as follows:</p>
 <pre class="bash"><code>mv ~/fastqs_demultiplexed_for_dada2/demultiplexed_date_time ../analysis/01-demultiplexed
 </code></pre>
-<p><strong>Note</strong> I ran analysis code from the <code>./analysis</code> directory and the paths are formatted for this.</p>
+<p><strong>Note:</strong> I ran all the following analysis code from the <code>./analysis</code> directory and the paths are formatted for this.</p>
 <p>We will load both the <code>hash_key.csv</code> and <code>ASV_table.csv</code> into R. We will join them and convert to the wide format <code>seq_tab.csv</code> format that Insect requires for taxa assignment. Workflow adapted from the (Insect Tutorial)[<a href="https://cran.r-project.org/web/packages/insect/vignettes/insect-vignette.html" class="uri">https://cran.r-project.org/web/packages/insect/vignettes/insect-vignette.html</a>].</p>
 <pre class="r"><code>data(samoa)
 ASV_tab &lt;- read.csv(here(&#39;./01-demultiplexed&#39;,&#39;ASV_table.csv&#39;))

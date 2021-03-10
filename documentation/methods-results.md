@@ -37,13 +37,24 @@ Joe Duprey
 To retrieve Moncho’s custom demultiplexing script:
 `git clone https://github.com/ramongallego/demultiplexer_for_DADA2.git <directory>`
 
+## Background
+
+Sequence data comes from eDNA collection by water bottle sampling of 8
+sites along the Hood Canal and San Juan Island in Washington State USA.
+A 313bp region of the COI region was amplified by PCR. Multiplexed
+samples were sequenced using MiSeq v2-500 kits according to manufacturer
+protocols.
+
+For detailed methods see [Gallego et al
+2020](https://www.biorxiv.org/content/10.1101/2020.10.08.331694v1.full)
+
 ## Retrieve Sequence Data
 
 First I retrieve the subset sequence data from where I uploaded it to
 Gannet. Replace `paths` and `server name` where appropriate.
 
 ``` bash
-scp casowari@Computer.fish.washington.edu:/<path/to/>zipped.fastqs.zip \
+scp casowari@Gannet.fish.washington.edu:/<path/to/>zipped.fastqs.zip \
 ../data/directory/zipped.fastqs.zip
 ```
 
@@ -152,11 +163,9 @@ To set the behavior of `demultiplex_both_fastqs.sh` navigate to
 Under `# INPUT` set `SEQUENCING_METADATA="${PARENT_DIR}"/metadata.csv`
 to the desired metadata folder.
 
-**WARNING**
-
-Do not change `PARENT_DIR` or `OUTPUT_DIRECTORY` settings. The output
-directory is your home directory or `~` which is inconvenient, but
-setting the `OUTPUT_DIRECTORY` to either
+**WARNING:** Do not change `PARENT_DIR` or `OUTPUT_DIRECTORY` settings.
+The output directory is your home directory or `~` which is
+inconvenient, but setting the `OUTPUT_DIRECTORY` to either
 `/demultiplexer_for_DADA2/fastqs_demultiplexed_for_DADA2` or
 `./fastqs_demultiplexed_for_DADA2` resulted in file path errors.
 
@@ -212,7 +221,7 @@ hash_key <- read.csv(here('./01-demultiplexed','hash_key.csv'))
 seq_tab <- inner_join(ASV_tab, hash_key)
 seq_tab <- select(seq_tab, -c(Hash))
 
-seq_tab = seq_tab %>% 
+seq_tab <- seq_tab %>% 
   spread(Sequence, nReads) %>%
   replace(is.na(.), 0)
 ```
@@ -250,3 +259,100 @@ longDF <- cbind(longDF, t(seq_tab))
 
 write_csv(longDF, './all.the.useful.tables/01subset.taxa.table.csv')
 ```
+
+## Results
+
+The data reshaping code in this results section uses output from
+Moncho’s original run of the pipeline, but should work with subset data
+as well.
+
+First we need to read in the sampling events and join the taxonomy\_hash
+table with the ASV\_table.
+
+``` r
+events <- read.csv(here('all.the.useful.tables','clusters.of.events.csv'))
+ASV_table <- read.csv(here('all.the.useful.tables','ASV_table_all_together.csv'))
+taxonomy_table <- read.csv(here('all.the.useful.tables','all.taxonomy.20190130.csv'))
+
+# merge ASV table and taxonomy table on hash column
+ASV_tax <- inner_join(ASV_table, taxonomy_table)
+```
+
+Sample notation is as follows `LL_201703A.1` The capital letter
+represents the biological replicate. The .numeral represents the
+PCR/technical replicate. Using strings we can sum all reads within a
+taxon and within a taxon and sampling event-grouping.
+
+``` r
+by_species_df <- ASV_tax %>%
+  group_by(sample, species) %>% # group the columns you want to "leave alone"
+  summarize(nReads=sum(nReads)) %>% #sum nReads
+  separate(col=sample, into=c('sample','tech'), sep='[.]') %>% 
+  separate(col=sample, into=c("sample", "bio"), sep = 9)
+
+by_site_species <- by_species_df %>%
+  group_by(sample, species) %>%
+  summarize(nReads=sum(nReads)) #sum nReads by species+sample - is this correct??
+```
+
+In order to match taxa reads to event conditions we need to run this
+goofy bit of event-string reformatting code.
+
+``` r
+events$event <- str_remove(events$event, "[-]") # find a better way to do this please
+events$event <- str_remove(events$event, "[-]")
+events <- events %>%
+  separate(col=event, into=c("sample", "foo"), sep = 9)
+```
+
+Since my main focus is community structure, I want to convert nReads
+data into species richness. To do this create a dummy variable on the
+table grouped by speces+site, then summarize the dummy variable to get
+species richness by site. Lastly, inner join this table to the
+oceanographic data on the events table.
+
+``` r
+by_site_species$diversity <- 1
+
+# how many species at each sampling event
+species_div <- by_site_species %>%
+  group_by(sample, diversity) %>%
+  summarize(diversity=sum(diversity)) #sum dummy to get species diversity 
+
+# join with oceanographic data 
+species_div_env <- inner_join(species_div, events)
+```
+
+Data can be explored with scatter plots:
+
+``` r
+# species diversity vs pH new pH?
+jpeg("./figures/pH.richness.jpg", width = 500, height = 500)
+plot(species_div_env$pH_new, species_div_env$diversity, xlim=c(7.5,8.7),
+     main = 'Species Richness vs pH',
+     xlab = 'pH',
+     ylab = 'species richness')
+dev.off()
+```
+
+Or as time series:
+
+``` r
+div_by_site <- function(location){
+  samp_div <- species_div_env %>%
+    filter(str_detect(sample, location))
+  
+  barplot(samp_div$diversity, names.arg = samp_div$sample, las=2,
+          main = location,
+          ylab = 'species richness',
+          ylim = c(0,100))
+}
+
+# lets use that function!
+jpeg("./figures/FH.series.jpg", width = 500, height = 500)
+div_by_site("FH")
+dev.off()
+```
+
+[Example
+Figures](https://github.com/fish546-2021/joe-benthos/tree/main/analysis/figures)

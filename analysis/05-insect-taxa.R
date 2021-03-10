@@ -23,8 +23,9 @@ seq_tab <- select(seq_tab, -c(Hash))
 
 seq_tab = seq_tab %>% 
   spread(Sequence, nReads) %>%
-  replace(is.na(.), 0)
+  replace(is.na(.), 0) 
 
+seq_tab <- data.frame(seq_tab[,-1], row.names = seq_tab[,1])
 
 ## get sequences from table column names
 x <- char2dna(colnames(seq_tab))

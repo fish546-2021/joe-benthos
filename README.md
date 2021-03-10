@@ -8,7 +8,7 @@ Initial attempt to reproduce and expand on analysis of Hood Canal and San Juan I
 [Methods and Results](https://github.com/fish546-2021/joe-benthos/blob/main/documentation/methods-results.md)   
 
 ## Workflow 
- - Retrieve Data from Gannett 
+ - Retrieve Data from Gannet 
  - Run MultiQC
  - Demultiplex Samples with [custom script](https://github.com/ramongallego/demultiplexer_for_DADA2/blob/master/code_day.md)
  - Denoise and Filter Sequences with dada2

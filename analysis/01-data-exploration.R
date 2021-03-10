@@ -4,11 +4,11 @@ library('stringr')
 library('tidyverse')
 
 # load Rarmon's data
-ASV_table <- read.csv(here('asv-output','ASV_table_all_together.csv'))
-taxonomy_table <- read.csv(here('asv-output','all.taxonomy.20190130.csv'))
+ASV_table <- read.csv(here('all.the.useful.tables','ASV_table_all_together.csv'))
+taxonomy_table <- read.csv(here('all.the.useful.tables','all.taxonomy.20190130.csv'))
 
 # load in the sampling events, these could be useful for combining replicates 
-events <- read.csv(here('asv-output','clusters.of.events.csv'))
+events <- read.csv(here('all.the.useful.tables','clusters.of.events.csv'))
 
 # NA's in ASV_table hash? 
 sum(is.na(ASV_table$Hash))
